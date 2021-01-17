@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController, Coordinating {
+    
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
