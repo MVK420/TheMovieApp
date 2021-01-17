@@ -54,8 +54,8 @@ class LoginViewController: UIViewController, Coordinating {
     }
     
     @objc private func didTapLoginButton(){
-        if let username = usernameTextField.text, let password = passwordTextField.text {
-            if validateData(username, password) {
+        if let username = usernameTextField.text{
+            if validateData(username) {
                 coordinator?.eventHappened(of: .loginTapped, model: self)
                 #warning("TODO: Keychain")
             }
@@ -63,7 +63,7 @@ class LoginViewController: UIViewController, Coordinating {
         #warning("TODO: Error handling")
     }
 
-    private func validateData(_ username:String,_ password:String) -> Bool {
+    private func validateData(_ username:String) -> Bool {
         return true
     }
 

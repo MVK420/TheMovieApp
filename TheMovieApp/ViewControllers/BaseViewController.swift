@@ -12,11 +12,9 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mainSetup()
-
     }
     
-    private func mainSetup(){
-        //self.navigationItem.titleView = createTitleLabel();
+    private func mainSetup() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true

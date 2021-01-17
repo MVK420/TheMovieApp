@@ -15,6 +15,9 @@
 		1B7C6CB525B4D802000CC683 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CB425B4D802000CC683 /* Coordinator.swift */; };
 		1B7C6CBA25B4D94B000CC683 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CB925B4D94B000CC683 /* Strings.swift */; };
 		1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CBD25B4D9C1000CC683 /* BaseViewController.swift */; };
+		1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */; };
+		1B7C6CC425B4DA85000CC683 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */; };
+		1B7C6CC725B4DB04000CC683 /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC625B4DB04000CC683 /* TVViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		1B7C6CB425B4D802000CC683 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = ../../../../../../../Applications/Coordinator.swift; sourceTree = "<group>"; };
 		1B7C6CB925B4D94B000CC683 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		1B7C6CBD25B4D9C1000CC683 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1B7C6CC625B4DB04000CC683 /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 			children = (
 				1B7C6C9C25B4D637000CC683 /* LoginViewController.swift */,
 				1B7C6CBD25B4D9C1000CC683 /* BaseViewController.swift */,
+				1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */,
+				1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */,
+				1B7C6CC625B4DB04000CC683 /* TVViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,7 +202,10 @@
 				1B7C6CB525B4D802000CC683 /* Coordinator.swift in Sources */,
 				1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */,
 				1B7C6CBA25B4D94B000CC683 /* Strings.swift in Sources */,
+				1B7C6CC725B4DB04000CC683 /* TVViewController.swift in Sources */,
+				1B7C6CC425B4DA85000CC683 /* HomeViewController.swift in Sources */,
 				1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */,
+				1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */,
 				1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
 			);
