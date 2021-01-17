@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1B1950FF25B4E71B00FF719E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */; };
+		1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6125B4EBC600CD207F /* APIService.swift */; };
 		1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9825B4D637000CC683 /* AppDelegate.swift */; };
 		1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */; };
 		1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9C25B4D637000CC683 /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B2B1B6125B4EBC600CD207F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1B7C6C9525B4D637000CC683 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7C6C9825B4D637000CC683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				1B7C6CB425B4D802000CC683 /* Coordinator.swift */,
+				1B2B1B6125B4EBC600CD207F /* APIService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				1B7C6CCD25B4DE34000CC683 /* Movie.swift in Sources */,
 				1B7C6CD325B4E15D000CC683 /* WatchableCell.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
+				1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */,
 				1B7C6CD025B4DF52000CC683 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

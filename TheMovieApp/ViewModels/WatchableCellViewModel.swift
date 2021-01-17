@@ -13,8 +13,8 @@ struct WatchableCellViewModel {
     let imgURL:URL
     
     init(with model:Movie) {
-        name = model.title
-        imgURL = URL(string: Strings.baseImgUrl + (model.posterPath))!
+        name = model.original_title
+        imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
     }
     
 }
