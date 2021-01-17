@@ -18,6 +18,9 @@
 		1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */; };
 		1B7C6CC425B4DA85000CC683 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */; };
 		1B7C6CC725B4DB04000CC683 /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC625B4DB04000CC683 /* TVViewController.swift */; };
+		1B7C6CCA25B4DCC9000CC683 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC925B4DCC9000CC683 /* FavoritesViewController.swift */; };
+		1B7C6CCD25B4DE34000CC683 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CCC25B4DE34000CC683 /* Movie.swift */; };
+		1B7C6CD025B4DF52000CC683 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CCF25B4DF52000CC683 /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B7C6CC625B4DB04000CC683 /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		1B7C6CC925B4DCC9000CC683 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		1B7C6CCC25B4DE34000CC683 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1B7C6CCF25B4DF52000CC683 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		1B7C6CAD25B4D7A8000CC683 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1B7C6CCF25B4DF52000CC683 /* MovieViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -91,6 +98,7 @@
 		1B7C6CAE25B4D7B2000CC683 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1B7C6CCC25B4DE34000CC683 /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 				1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */,
 				1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */,
 				1B7C6CC625B4DB04000CC683 /* TVViewController.swift */,
+				1B7C6CC925B4DCC9000CC683 /* FavoritesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,7 +216,10 @@
 				1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */,
 				1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */,
 				1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */,
+				1B7C6CCA25B4DCC9000CC683 /* FavoritesViewController.swift in Sources */,
+				1B7C6CCD25B4DE34000CC683 /* Movie.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
+				1B7C6CD025B4DF52000CC683 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

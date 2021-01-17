@@ -10,20 +10,16 @@ import UIKit
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coordinating {
     
     var coordinator: Coordinator?
-    private let homeVC = BaseViewController()
-    private let favoritesVC = BaseViewController()
-    private let tvShowsVC = BaseViewController()
+    let homeScreen = HomeViewController()
+    let tvScreen = TVViewController()
+    let favoritesScreen = FavoritesViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let homeScreen = HomeViewController()
-        let tvScreen = TVViewController()
-
-        
-        viewControllers = [createController(title: "Home", imageName: "home", vc: homeScreen),  createController(title: "TV", imageName: "home", vc: tvScreen)]
-        
+        viewControllers = [createController(title: "Home", imageName: "home", vc: homeScreen),
+                           createController(title: "Favorites", imageName: "home", vc: favoritesScreen),
+                           createController(title: "TV", imageName: "home", vc: tvScreen)]
         tabBar.barTintColor = .black
-        
     }
     
     /// Creates controllers for tab bar
