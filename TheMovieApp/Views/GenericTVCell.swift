@@ -1,5 +1,5 @@
 //
-//  MovieCell.swift
+//  GenericTVCell.swift
 //  TheMovieApp
 //
 //  Created by Mozes Vidami on 1/18/21.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MovieCell:BaseWatchableCell<WatchableCellViewModel> {
+class GenericTVCell:BaseWatchableCell<WatchableCellViewModel> {
     
     override var viewModel: WatchableCellViewModel! {
         didSet {
-            //configureCell(viewModel: viewModel)
+            //configureCell(with: viewModel)
         }
     }
     
@@ -25,8 +25,9 @@ class MovieCell:BaseWatchableCell<WatchableCellViewModel> {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

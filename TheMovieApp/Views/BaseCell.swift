@@ -9,5 +9,5 @@ import UIKit
 
 class BaseCell<U>:UITableViewCell {
     
-    var model:U!
+    var viewModel:U!
 }
