@@ -17,4 +17,8 @@ struct WatchableCellViewModel {
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
     }
     
+    init(with model:TV) {
+        name = model.name
+        imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
+    }
 }

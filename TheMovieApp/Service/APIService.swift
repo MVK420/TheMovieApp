@@ -8,7 +8,12 @@
 import UIKit
 
 struct HomeFeed: Decodable {
+    let page:Int
     let results: [Movie]
+}
+
+struct TVFeed: Decodable {
+    let results:[TV]
 }
 
 class APIService {
