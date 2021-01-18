@@ -18,15 +18,15 @@ class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewM
     
     private func loadShows() {
         let url = URL(string: Strings.baseUrl + "tv/top_rated?api_key=\(Strings.apiKey)")!
-   //     let nsurl = NSURL(string: Strings.baseUrl + "tv/top_rated?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: TVFeed.self) { (result:TVFeed?,err:Error?) in
             result?.results.forEach({
                 self.items.append(WatchableCellViewModel(with: $0))
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             })
         }
-//        apiCall(url: nsurl) { (result, error) in
-//            print(result)
-//        }
+
     }
     
     func apiCall(url:NSURL, completionHandler: @escaping (NSDictionary?, NSError?) -> Void) -> URLSessionTask {

@@ -10,15 +10,18 @@ import UIKit
 struct WatchableCellViewModel {
     
     let name:String
+    let overview:String
     let imgURL:URL
     
     init(with model:Movie) {
         name = model.original_title
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
+        overview = model.overview
     }
     
     init(with model:TV) {
         name = model.name
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
+        overview = model.overview
     }
 }

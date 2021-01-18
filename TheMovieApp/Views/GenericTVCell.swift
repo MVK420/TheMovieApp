@@ -17,7 +17,7 @@ class GenericTVCell:BaseWatchableCell<WatchableCellViewModel> {
     
     func configureCell(with viewModel:WatchableCellViewModel) {
         self.viewModel = viewModel
-        nameLabel.text = viewModel.name
+        titleLabel.text = viewModel.name
         posterImage.downloaded(from: viewModel.imgURL)
     }
     

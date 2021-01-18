@@ -21,6 +21,9 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,WatchableCell
         APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
             result?.results.forEach({
                 self.items.append(WatchableCellViewModel(with: $0))
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             })
         }
     }

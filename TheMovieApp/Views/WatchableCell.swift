@@ -14,7 +14,7 @@ class WatchableCell: UITableViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
+        label.textColor = .yellow
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

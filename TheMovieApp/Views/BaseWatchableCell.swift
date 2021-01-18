@@ -10,14 +10,23 @@ import UIKit
 class BaseWatchableCell<U>:UITableViewCell {
     
     var viewModel: U?
-    let nameLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    let posterImage : UIImageView = {
+    let overviewLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.textColor = .secondaryLabel
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let posterImage: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -25,9 +34,14 @@ class BaseWatchableCell<U>:UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(nameLabel)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(overviewLabel)
         contentView.addSubview(posterImage)
-        contentView.clipsToBounds = true
+        //contentView.clipsToBounds = true
     }
     
     required init?(coder: NSCoder) {
@@ -36,21 +50,25 @@ class BaseWatchableCell<U>:UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let width = contentView.frame.size.width - 10
-        let height = contentView.frame.size.height
-        nameLabel.frame = CGRect(x: 5, y: -10, width: 100, height: height)
+        titleLabel.leadingAnchor.constraint(equalTo:posterImage.trailingAnchor,constant: 7.86).isActive = true
+        titleLabel.topAnchor.constraint(equalTo:posterImage.topAnchor).isActive = true
         
-        posterImage.frame = CGRect(x: width - 120, y: 10, width: 110, height: height - 20)
-        posterImage.topAnchor.constraint(equalTo:contentView.topAnchor).isActive = true
-        posterImage.bottomAnchor.constraint(equalTo:contentView.bottomAnchor).isActive = true
-        posterImage.rightAnchor.constraint(equalTo:contentView.rightAnchor).isActive = true
-        posterImage.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        posterImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        overviewLabel.leadingAnchor.constraint(equalTo:posterImage.trailingAnchor).isActive = true
+        overviewLabel.bottomAnchor.constraint(equalTo:contentView.bottomAnchor).isActive = true
+        overviewLabel.trailingAnchor.constraint(equalTo:contentView.trailingAnchor,constant: -33).isActive = true
+        overviewLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 93).isActive = true
+
+        posterImage.topAnchor.constraint(equalTo:contentView.topAnchor,constant: 8).isActive = true
+        posterImage.bottomAnchor.constraint(equalTo:contentView.bottomAnchor,constant: 5).isActive = true
+        posterImage.leadingAnchor.constraint(equalTo:contentView.leadingAnchor,constant: 10).isActive = true
+        posterImage.widthAnchor.constraint(equalToConstant: 97.14).isActive = true
+        posterImage.heightAnchor.constraint(equalToConstant: 136).isActive = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.nameLabel.text = nil
+        self.titleLabel.text = nil
         self.posterImage.image = nil
+        self.overviewLabel.text = nil
     }
 }

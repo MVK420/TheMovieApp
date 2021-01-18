@@ -26,7 +26,7 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:UIViewController,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! BaseWatchableCell<U>
         let model:U? = items[indexPath.row]
-        //cell.viewModel =  WatchableCellViewModel(with: model! as! Movie) as? U
+        cell.viewModel =  WatchableCellViewModel(with: model! as! Movie) as? U
         return cell
     }
     

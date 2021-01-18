@@ -17,7 +17,8 @@ class GenericMovieCell:BaseWatchableCell<WatchableCellViewModel> {
     
     func configureCell(with viewModel:WatchableCellViewModel) {
         self.viewModel = viewModel
-        nameLabel.text = viewModel.name
+        titleLabel.text = viewModel.name
+        overviewLabel.text = viewModel.overview
         posterImage.downloaded(from: viewModel.imgURL)
     }
     
