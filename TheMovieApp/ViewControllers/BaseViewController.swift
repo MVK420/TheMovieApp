@@ -13,11 +13,12 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         mainSetup()
     }
-    
+
     private func mainSetup() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
+        navigationController?.navigationItem.setLeftBarButton(UIBarButtonItem(customView: UITextField()), animated: false)
     }
 }

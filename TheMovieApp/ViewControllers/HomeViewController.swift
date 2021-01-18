@@ -18,14 +18,14 @@ class HomeViewController: BaseViewController, Coordinating {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         constrainUI()
         loadMovies()
         view.backgroundColor = .red
+        
     }
     
     private func loadMovies() {
@@ -72,6 +72,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //coordinator?.eventHappened(of: .detailTapped, model: viewModel?.routes[indexPath.row])
+        print("hello")
+        coordinator?.eventHappened(of: .detailTapped, model: viewModel?.movies[indexPath.row])
     }
 }
