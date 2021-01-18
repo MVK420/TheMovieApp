@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1B1950FF25B4E71B00FF719E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */; };
 		1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6125B4EBC600CD207F /* APIService.swift */; };
+		1B2B1B6625B58C3100CD207F /* TVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6525B58C3100CD207F /* TVViewModel.swift */; };
+		1B2B1B6C25B58C9300CD207F /* BaseWatchableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6B25B58C9300CD207F /* BaseWatchableCell.swift */; };
+		1B2B1B6F25B58D5900CD207F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6E25B58D5900CD207F /* MovieCell.swift */; };
+		1B2B1B7325B58DD300CD207F /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B7225B58DD300CD207F /* BaseCell.swift */; };
+		1B2B1B7625B58E0800CD207F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B7525B58E0800CD207F /* BaseTableViewController.swift */; };
 		1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9825B4D637000CC683 /* AppDelegate.swift */; };
 		1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */; };
 		1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9C25B4D637000CC683 /* LoginViewController.swift */; };
@@ -32,6 +37,11 @@
 /* Begin PBXFileReference section */
 		1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B2B1B6125B4EBC600CD207F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1B2B1B6525B58C3100CD207F /* TVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewModel.swift; sourceTree = "<group>"; };
+		1B2B1B6B25B58C9300CD207F /* BaseWatchableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWatchableCell.swift; sourceTree = "<group>"; };
+		1B2B1B6E25B58D5900CD207F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		1B2B1B7225B58DD300CD207F /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		1B2B1B7525B58E0800CD207F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		1B7C6C9525B4D637000CC683 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7C6C9825B4D637000CC683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 			children = (
 				1B7C6CCF25B4DF52000CC683 /* MovieViewModel.swift */,
 				1B7C6CD525B4E21F000CC683 /* WatchableCellViewModel.swift */,
+				1B2B1B6525B58C3100CD207F /* TVViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 				1B7C6CC325B4DA85000CC683 /* HomeViewController.swift */,
 				1B7C6CC625B4DB04000CC683 /* TVViewController.swift */,
 				1B7C6CC925B4DCC9000CC683 /* FavoritesViewController.swift */,
+				1B2B1B7525B58E0800CD207F /* BaseTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -149,6 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				1B7C6CD225B4E15D000CC683 /* WatchableCell.swift */,
+				1B2B1B6B25B58C9300CD207F /* BaseWatchableCell.swift */,
+				1B2B1B6E25B58D5900CD207F /* MovieCell.swift */,
+				1B2B1B7225B58DD300CD207F /* BaseCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,15 +318,20 @@
 				1B7C6CEC25B4E580000CC683 /* ImageView.swift in Sources */,
 				1B7C6CB525B4D802000CC683 /* Coordinator.swift in Sources */,
 				1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */,
+				1B2B1B7625B58E0800CD207F /* BaseTableViewController.swift in Sources */,
+				1B2B1B6625B58C3100CD207F /* TVViewModel.swift in Sources */,
+				1B2B1B6C25B58C9300CD207F /* BaseWatchableCell.swift in Sources */,
 				1B7C6CBA25B4D94B000CC683 /* Strings.swift in Sources */,
 				1B7C6CC725B4DB04000CC683 /* TVViewController.swift in Sources */,
 				1B7C6CC425B4DA85000CC683 /* HomeViewController.swift in Sources */,
+				1B2B1B7325B58DD300CD207F /* BaseCell.swift in Sources */,
 				1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */,
 				1B7C6CD625B4E21F000CC683 /* WatchableCellViewModel.swift in Sources */,
 				1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */,
 				1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */,
 				1B7C6CCA25B4DCC9000CC683 /* FavoritesViewController.swift in Sources */,
 				1B7C6CCD25B4DE34000CC683 /* Movie.swift in Sources */,
+				1B2B1B6F25B58D5900CD207F /* MovieCell.swift in Sources */,
 				1B7C6CD325B4E15D000CC683 /* WatchableCell.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
 				1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */,
