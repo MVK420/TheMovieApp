@@ -14,7 +14,7 @@ class BaseWatchableCell<U>:UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .black
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,14 +52,15 @@ class BaseWatchableCell<U>:UITableViewCell {
         super.layoutSubviews()
         titleLabel.leadingAnchor.constraint(equalTo:posterImage.trailingAnchor,constant: 7.86).isActive = true
         titleLabel.topAnchor.constraint(equalTo:posterImage.topAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo:contentView.trailingAnchor,constant: -50).isActive = true
         
         overviewLabel.leadingAnchor.constraint(equalTo:posterImage.trailingAnchor).isActive = true
-        overviewLabel.bottomAnchor.constraint(equalTo:contentView.bottomAnchor).isActive = true
+        overviewLabel.bottomAnchor.constraint(equalTo:contentView.bottomAnchor,constant: -8).isActive = true
         overviewLabel.trailingAnchor.constraint(equalTo:contentView.trailingAnchor,constant: -33).isActive = true
         overviewLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 93).isActive = true
 
         posterImage.topAnchor.constraint(equalTo:contentView.topAnchor,constant: 8).isActive = true
-        posterImage.bottomAnchor.constraint(equalTo:contentView.bottomAnchor,constant: 5).isActive = true
+        posterImage.bottomAnchor.constraint(equalTo:contentView.bottomAnchor,constant: -5).isActive = true
         posterImage.leadingAnchor.constraint(equalTo:contentView.leadingAnchor,constant: 10).isActive = true
         posterImage.widthAnchor.constraint(equalToConstant: 97.14).isActive = true
         posterImage.heightAnchor.constraint(equalToConstant: 136).isActive = true

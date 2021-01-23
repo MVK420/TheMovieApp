@@ -13,7 +13,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coor
     let homeScreen = HomeViewController()
     let tvScreen = TVViewController()
     let favoritesScreen = FavoritesViewController()
-    var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +20,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coor
                            createController(title: "Favorites", imageName: "home", vc: favoritesScreen),
                            createController(title: "TV", imageName: "home", vc: tvScreen)]
         tabBar.barTintColor = .black
-        searchBar.placeholder = "Search Movie"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:searchBar)
     }
     
     /// Creates controllers for tab bar
@@ -35,6 +32,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coor
     private func createController(title: String, imageName: String, vc: UIViewController) -> UINavigationController{
         let recentVC = UINavigationController(rootViewController: vc)
         recentVC.tabBarItem.title = title
+        recentVC.modalPresentationStyle = .fullScreen
         recentVC.tabBarItem.image = UIImage(named: imageName)
         return recentVC
     }
@@ -43,8 +41,3 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coor
         return .lightContent
     }
 }
-
-extension UISearchBarDelegate {
-    
-}
-

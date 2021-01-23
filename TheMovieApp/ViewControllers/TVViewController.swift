@@ -29,33 +29,6 @@ class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewM
 
     }
     
-    func apiCall(url:NSURL, completionHandler: @escaping (NSDictionary?, NSError?) -> Void) -> URLSessionTask {
-        
-        var finalData: NSDictionary!
-        let task = URLSession.shared.dataTask(with: url as URL) { (data, response, error) -> Void in
-            if error != nil{
-                completionHandler(nil, error as NSError?)
-                return
-            } else {
-                do{
-                    if let json = try JSONSerialization.jsonObject(with: data!) as? NSDictionary {
-                        //print(json)
-                        finalData = json as NSDictionary
-                        completionHandler(finalData, nil)
-                        return
-                    }
-                } catch {
-                    print("EMPTY")
-                    return
-                }
-            }
-        }
-        task.resume()
-        return task
-    }
-    
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! GenericTVCell
         cell.viewModel =  items[indexPath.row]
@@ -63,13 +36,3 @@ class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewM
         return cell
     }
 }
-
-//class TVCell:BaseCell<Movie> {
-//    override var viewModel: Movie! {
-//        didSet {
-//            
-//        }
-//    }
-//}
-
-
