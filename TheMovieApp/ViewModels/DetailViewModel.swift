@@ -25,7 +25,7 @@ struct DetailViewModel {
         
         rating = "4.0"
         status = "Released"
-        popularity = "216.912"
+        popularity = (model.popularity!.formattedAmount ?? "0.0")
         language = "EN"
         genres = ["Horror","Sci-Fi","Fantasy"]
     }
@@ -35,9 +35,9 @@ struct DetailViewModel {
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
         overview = model.overview
         
+        popularity = (model.popularity!.formattedAmount ?? "0.0")
         rating = "4.0"
         status = "Released"
-        popularity = "216.912"
         language = "EN"
         genres = ["Horror","Sci-Fi","Fantasy"]
     }

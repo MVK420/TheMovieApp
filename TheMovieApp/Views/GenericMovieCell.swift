@@ -24,6 +24,7 @@ class GenericMovieCell:BaseWatchableCell<Movie> {
         posterImage.downloaded(from: viewModel.imgURL)
         ratingLabel.text = viewModel.rating
         starImage.image = UIImage(named:"Star 1")
+        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

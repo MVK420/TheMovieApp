@@ -13,6 +13,7 @@ struct WatchableCellViewModel {
     let overview:String
     let imgURL:URL
     let rating:String
+    let popularity:String
     
     init(with model:Movie) {
         name = model.original_title!
@@ -23,6 +24,8 @@ struct WatchableCellViewModel {
         }
         overview = model.overview!
         rating = (model.vote_average!.formattedAmount ?? "0.0")
+        popularity = (model.popularity!.formattedAmount ?? "0.0")
+        
     }
     
     init(with model:TV) {
@@ -30,6 +33,7 @@ struct WatchableCellViewModel {
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
         overview = model.overview
         rating = (model.vote_average!.formattedAmount ?? "0.0")
+        popularity = (model.popularity!.formattedAmount ?? "0.0")
     }
 }
 

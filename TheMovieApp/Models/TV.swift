@@ -12,13 +12,15 @@ struct TV:Decodable {
     let first_air_date:String
     let poster_path:String
     var vote_average: Decimal?
+    let popularity:Decimal?
     
-    init(name:String, overview:String, first_air_date:String, poster_path:String,rating:String?,vote_average:Decimal?) {
+    init(name:String, overview:String, first_air_date:String, poster_path:String,rating:String?,vote_average:Decimal?,popularity:Decimal?) {
         self.name = name
         self.overview = overview
         self.first_air_date = first_air_date
         self.poster_path = poster_path
         self.vote_average = vote_average
+        self.popularity = popularity
     }
 
 }
