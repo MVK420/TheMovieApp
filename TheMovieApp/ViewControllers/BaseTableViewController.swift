@@ -15,19 +15,20 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     //var viewModel:MovieViewModel?
     
     var tableView: UITableView = {
-        var tableView = UITableView()
+        var tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.rowHeight = 149
+        tableView.sectionHeaderHeight = 50
+        tableView.backgroundColor = .white
         return tableView
     }()
-    var searchBar:UISearchBar = {
-        var searchBar = UISearchBar()
-        searchBar.placeholder = "Search Movie"
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
+    var searchBar:UISearchBar =  {
+        let searchBar = UISearchBar()
+        searchBar.frame = CGRect(x: 0, y: 0, width: 150, height: 43)
+        searchBar.placeholder = "Search"
         return searchBar
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,27 +41,20 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         tableView.dataSource = self
         tableView.delegate = self
         view.backgroundColor = .white
-        view.addSubview(searchBar)
         view.addSubview(tableView)
-        //navigationController?.title = "Movie"
+        tableView.tableHeaderView = searchBar
     }
     
     private func constraintUI() {
-        searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
-        searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16).isActive = true
-        searchBar.topAnchor.constraint(equalTo: view.topAnchor,constant: 90).isActive = true
-
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: -0).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo:view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo:view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! BaseWatchableCell<U>
         let model:U? = items[indexPath.row]
-        //cell.viewModel =  WatchableCellViewModel(with: model! as! Movie) as? U
         cell.model = model
         return cell
     }
@@ -73,9 +67,7 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         coordinator?.eventHappened(of: .detailTapped, model: items[indexPath.row])
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let contentOffset = scrollView.contentOffset.y
-            print("contentOffset: ", contentOffset)
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
-    
 }

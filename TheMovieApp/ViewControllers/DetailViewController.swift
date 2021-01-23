@@ -54,6 +54,22 @@ class DetailViewController<U>: UIViewController, Coordinating {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    let ratingLabel:UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .yellow
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.zPosition = 2
+        return label
+    }()
+    let starImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named:"Star 1")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.layer.zPosition = 2
+        return img
+    }()
     var popularityStackView:UIStackView!
     var languageStackView:UIStackView!
     var statusStackView:UIStackView!
@@ -113,7 +129,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         //label.adjustsFontSizeToFitWidth = false
-       //label.translatesAutoresizingMaskIntoConstraints = false
+       label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
     
@@ -135,6 +151,8 @@ class DetailViewController<U>: UIViewController, Coordinating {
         view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(posterImage)
+        view.addSubview(starImage)
+        view.addSubview(ratingLabel)
         view.addSubview(statusStackView)
         view.addSubview(popularityStackView)
         view.addSubview(languageStackView)
@@ -146,8 +164,17 @@ class DetailViewController<U>: UIViewController, Coordinating {
         posterImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         posterImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        titleLabel.bottomAnchor.constraint(equalTo: posterImage.bottomAnchor, constant: -158).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 128).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: posterImage.leadingAnchor, constant: 18).isActive = true
+        
+        starImage.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
+        starImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24).isActive = true
+        starImage.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        starImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        ratingLabel.centerYAnchor.constraint(equalTo: starImage.centerYAnchor).isActive = true
+        //ratingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 227).isActive = true
+        ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 7).isActive = true
         
         overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 18).isActive = true
         overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -32).isActive = true
@@ -164,6 +191,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
         
         genreStackView.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor, constant: -8).isActive = true
         genreStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        genreStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
         
     }
     
@@ -174,5 +202,6 @@ class DetailViewController<U>: UIViewController, Coordinating {
         statusLabel.text = viewModel.status
         popularityLabel.text = viewModel.popularity
         languageLabel.text = viewModel.language
+        ratingLabel.text = viewModel.rating
     }
 }
