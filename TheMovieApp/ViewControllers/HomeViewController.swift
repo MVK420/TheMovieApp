@@ -43,6 +43,28 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
         }
     }
     
+    private func loadandview() {
+        let url:NSURL = NSURL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
+        APIService.sharedInstance.apiCall(url: url) { (result, error) in
+            print(result)
+        
+        }
+    }
+    
+    private func searchandview() {
+        if let searchText:String = searchBar.text {
+            let escapedAddress = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+            let url:NSURL = NSURL(string: Strings.baseUrl + "search/movie?api_key=\(Strings.apiKey)&query=\(escapedAddress)")!
+            APIService.sharedInstance.apiCall(url: url) { (result, error) in
+                //print(result)
+                var movies:[NSDictionary] = []
+                movies = (result!["results"] as? [NSDictionary])!
+                print(movies)
+                print(error)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! GenericMovieCell
         cell.model = items[indexPath.row]

@@ -13,7 +13,7 @@ class BaseWatchableCell<U>:UITableViewCell {
     //var viewModel: U?
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont(name: "Roboto-Bold", size: 18)
         label.textColor = .black
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ class BaseWatchableCell<U>:UITableViewCell {
     }()
     let overviewLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "Roboto-Bold", size: 14)
         label.numberOfLines = 0
         label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +29,21 @@ class BaseWatchableCell<U>:UITableViewCell {
     }()
     let posterImage: UIImageView = {
         let img = UIImageView()
+        img.layer.zPosition = 1
+        img.translatesAutoresizingMaskIntoConstraints = false
+        return img
+    }()
+    let ratingLabel:UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Roboto-Bold", size: 12)
+        label.textColor = .yellow
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let starImage: UIImageView = {
+        let img = UIImageView()
+        img.layer.zPosition = 2
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -42,7 +57,8 @@ class BaseWatchableCell<U>:UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(overviewLabel)
         contentView.addSubview(posterImage)
-        //contentView.clipsToBounds = true
+        contentView.addSubview(ratingLabel)
+        contentView.addSubview(starImage)
     }
     
     required init?(coder: NSCoder) {
@@ -65,6 +81,14 @@ class BaseWatchableCell<U>:UITableViewCell {
         posterImage.leadingAnchor.constraint(equalTo:contentView.leadingAnchor,constant: 10).isActive = true
         posterImage.widthAnchor.constraint(equalToConstant: 97.14).isActive = true
         posterImage.heightAnchor.constraint(equalToConstant: 136).isActive = true
+        
+        starImage.leadingAnchor.constraint(equalTo:posterImage.trailingAnchor,constant: 6.86).isActive = true
+        starImage.topAnchor.constraint(equalTo:titleLabel.bottomAnchor,constant: 10).isActive = true
+        starImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        starImage.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        ratingLabel.centerYAnchor.constraint(equalTo: starImage.centerYAnchor).isActive = true
+        ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 6).isActive = true
     }
     
     override func prepareForReuse() {
@@ -72,5 +96,6 @@ class BaseWatchableCell<U>:UITableViewCell {
         self.titleLabel.text = nil
         self.posterImage.image = nil
         self.overviewLabel.text = nil
+        self.ratingLabel.text = nil
     }
 }

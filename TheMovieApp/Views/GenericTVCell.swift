@@ -20,6 +20,9 @@ class GenericTVCell:BaseWatchableCell<TV> {
         self.viewModel = viewModel
         titleLabel.text = viewModel.name
         posterImage.downloaded(from: viewModel.imgURL)
+        overviewLabel.text = viewModel.overview
+        ratingLabel.text = viewModel.rating
+        starImage.image = UIImage(named:"Star 1")
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

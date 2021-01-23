@@ -12,6 +12,7 @@ class TVViewController: BaseTableViewController<GenericTVCell,TV> {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShows()
+        loadandview()
     }
     
     private func loadShows() {
@@ -24,7 +25,14 @@ class TVViewController: BaseTableViewController<GenericTVCell,TV> {
                 }
             })
         }
-
+    }
+    
+    private func loadandview() {
+        let url:NSURL = NSURL(string: Strings.baseUrl + "tv/top_rated?api_key=\(Strings.apiKey)")!
+        APIService.sharedInstance.apiCall(url: url) { (result, error) in
+            print(result)
+        
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
