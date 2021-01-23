@@ -19,6 +19,8 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
         let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
             result?.results.forEach({
+                self.page = result?.page
+                self.totalPages = result?.total_pages
                 self.items.append($0)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -43,10 +45,33 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
         }
     }
     
+    private func fetchMoreMovies() {
+        if self.page! < self.totalPages! {
+            let stringPage = String(self.page! + 1)
+            let url = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)&page=\(stringPage)")!
+            APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
+                result?.results.forEach({
+                    self.page = result?.page
+                    self.totalPages = result?.total_pages
+                    self.items.append($0)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! GenericMovieCell
         cell.model = items[indexPath.row]
         return cell
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.indexPathsForVisibleRows?.last?.row == self.items.count - 2 {
+            fetchMoreMovies()
+        }
     }
 }
 

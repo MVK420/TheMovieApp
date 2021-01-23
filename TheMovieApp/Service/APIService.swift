@@ -8,7 +8,8 @@
 import UIKit
 
 struct HomeFeed: Decodable {
-    let page:Int
+    var page:Int
+    var total_pages:Int
     let results: [Movie]
 }
 

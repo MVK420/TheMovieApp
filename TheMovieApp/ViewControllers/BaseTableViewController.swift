@@ -12,6 +12,8 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     var coordinator: Coordinator?
     let cellID:String = "cellID"
     var items = [U]()
+    var page:Int?
+    var totalPages:Int?
     //var viewModel:MovieViewModel?
     
     var tableView: UITableView = {
@@ -67,4 +69,6 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         coordinator?.eventHappened(of: .detailTapped, model: items[indexPath.row])
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    }
 }
