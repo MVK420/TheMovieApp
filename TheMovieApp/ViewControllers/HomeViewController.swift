@@ -12,7 +12,7 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMovies()
-        loadandview()
+        //loadandview()
         searchBar.delegate = self
     }
     

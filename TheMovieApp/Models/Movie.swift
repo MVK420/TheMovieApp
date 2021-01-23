@@ -12,13 +12,15 @@ struct Movie:Decodable {
     var poster_path:String? = "/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg"
     var vote_average: Decimal?
     var popularity: Decimal?
+    var genre_ids: [Decimal]?
     
-    init(original_title:String?, overview:String?, poster_path:String?,vote_average:Decimal?,popularity:Decimal?) {
+    init(original_title:String?, overview:String?, poster_path:String?,vote_average:Decimal?,popularity:Decimal?,genre_ids:[Decimal]?) {
         self.original_title = original_title
         self.overview = overview
         self.poster_path = poster_path
         self.vote_average = vote_average
         self.popularity = popularity
+        self.genre_ids = genre_ids
     }
 
 }

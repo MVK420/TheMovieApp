@@ -16,7 +16,7 @@ struct DetailViewModel {
     let status:String
     let popularity:String
     let language:String
-    let genres:[String]
+    var genres:[String] = []
     
     init(with model:Movie) {
         name = model.original_title!
@@ -27,7 +27,10 @@ struct DetailViewModel {
         status = "Released"
         popularity = (model.popularity!.formattedAmount ?? "0.0")
         language = "EN"
-        genres = ["Horror","Sci-Fi","Fantasy"]
+        model.genre_ids?.forEach({ (genre) in
+            self.genres.append(Genres.dict[genre]!)
+        })
+        //genres = ["Horror","Sci-Fi","Fantasy"]
     }
     
     init(with model:TV) {

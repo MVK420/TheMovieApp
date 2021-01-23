@@ -16,10 +16,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate, Coor
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        viewControllers = [createController(title: "Home", imageName: "home", vc: coordinator?.createHomeController()),
-//                           createController(title: "Favorites", imageName: "home", vc: favoritesScreen),
-//                           createController(title: "TV", imageName: "home", vc: tvScreen)]
         tabBar.barTintColor = .black
     }
     
