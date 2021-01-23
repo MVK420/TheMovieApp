@@ -16,7 +16,7 @@ struct DetailViewModel {
     let status:String
     let popularity:String
     let language:String
-    let gen:[String]
+    let genres:[String]
     
     init(with model:Movie) {
         name = model.original_title
@@ -27,7 +27,7 @@ struct DetailViewModel {
         status = "Released"
         popularity = "216.912"
         language = "EN"
-        gen = ["Horror","Sci-Fi","Fantasy"]
+        genres = ["Horror","Sci-Fi","Fantasy"]
     }
     
     init(with model:TV) {
@@ -39,6 +39,6 @@ struct DetailViewModel {
         status = "Released"
         popularity = "216.912"
         language = "EN"
-        gen = ["Horror","Sci-Fi","Fantasy"]
+        genres = ["Horror","Sci-Fi","Fantasy"]
     }
 }
