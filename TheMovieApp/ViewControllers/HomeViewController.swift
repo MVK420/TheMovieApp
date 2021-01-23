@@ -7,9 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseTableViewController<GenericMovieCell,WatchableCellViewModel>, Coordinating {
-    
-    var coordinator: Coordinator?
+class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +19,7 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,WatchableCell
         let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
             result?.results.forEach({
-                self.items.append(WatchableCellViewModel(with: $0))
+                self.items.append($0)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -34,7 +32,8 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,WatchableCell
             let url:URL = URL(string: Strings.baseUrl + "search/movie?api_key=\(Strings.apiKey)&query=\(searchText)")!
             APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
                 result?.results.forEach({
-                    self.items.append(WatchableCellViewModel(with: $0))
+                    //self.items.append(WatchableCellViewModel(with: $0))
+                    self.items.append($0)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -54,8 +53,7 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,WatchableCell
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! GenericMovieCell
-        cell.viewModel =  items[indexPath.row]
-        cell.configureCell(with: cell.viewModel)
+        cell.model = items[indexPath.row]
         return cell
     }
 }

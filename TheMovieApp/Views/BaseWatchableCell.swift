@@ -9,7 +9,8 @@ import UIKit
 
 class BaseWatchableCell<U>:UITableViewCell {
     
-    var viewModel: U?
+    var model: U?
+    //var viewModel: U?
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)

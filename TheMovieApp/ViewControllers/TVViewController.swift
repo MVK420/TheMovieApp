@@ -7,9 +7,7 @@
 
 import UIKit
 
-class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewModel>, Coordinating {
-    
-    var coordinator: Coordinator?
+class TVViewController: BaseTableViewController<GenericTVCell,TV> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +18,7 @@ class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewM
         let url = URL(string: Strings.baseUrl + "tv/top_rated?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: TVFeed.self) { (result:TVFeed?,err:Error?) in
             result?.results.forEach({
-                self.items.append(WatchableCellViewModel(with: $0))
+                self.items.append($0)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -31,8 +29,7 @@ class TVViewController: BaseTableViewController<GenericTVCell,WatchableCellViewM
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! GenericTVCell
-        cell.viewModel =  items[indexPath.row]
-        cell.configureCell(with: cell.viewModel)
+        cell.model = items[indexPath.row]
         return cell
     }
 }

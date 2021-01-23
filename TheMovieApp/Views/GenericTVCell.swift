@@ -7,11 +7,12 @@
 
 import UIKit
 
-class GenericTVCell:BaseWatchableCell<WatchableCellViewModel> {
+class GenericTVCell:BaseWatchableCell<TV> {
     
-    override var viewModel: WatchableCellViewModel! {
+    var viewModel:WatchableCellViewModel!
+    override var model: TV! {
         didSet {
-            //configureCell(with: viewModel)
+            configureCell(with: WatchableCellViewModel(with: model))
         }
     }
     

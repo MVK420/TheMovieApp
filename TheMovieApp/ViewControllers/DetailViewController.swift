@@ -1,29 +1,31 @@
 //
-//  FavoritesViewController.swift
+//  DetailViewController.swift
 //  TheMovieApp
 //
-//  Created by Mozes Vidami on 1/17/21.
+//  Created by Mozes Vidami on 1/23/21.
 //
 
 import UIKit
 
-class FavoritesViewController: BaseViewController, Coordinating {
+class DetailViewController<U>: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
-
+    var model:U! {
+        didSet {
+            print(model)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         constrainUI()
-        view.backgroundColor = .purple
     }
     
-    private func setupUI() {
+    private func setupUI(){
         
     }
-    
     private func constrainUI() {
         
     }
-    
 }

@@ -7,8 +7,9 @@
 
 import UIKit
 
-class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITableViewDataSource{
+class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITableViewDataSource, UITableViewDelegate,Coordinating {
     
+    var coordinator: Coordinator?
     let cellID:String = "cellID"
     var items = [U]()
     //var viewModel:MovieViewModel?
@@ -37,6 +38,7 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     private func setupUI() {
         tableView.register(T.self, forCellReuseIdentifier: cellID)
         tableView.dataSource = self
+        tableView.delegate = self
         view.backgroundColor = .white
         view.addSubview(searchBar)
         view.addSubview(tableView)
@@ -58,7 +60,8 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! BaseWatchableCell<U>
         let model:U? = items[indexPath.row]
-        cell.viewModel =  WatchableCellViewModel(with: model! as! Movie) as? U
+        //cell.viewModel =  WatchableCellViewModel(with: model! as! Movie) as? U
+        cell.model = model
         return cell
     }
     
@@ -66,12 +69,13 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         return items.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.eventHappened(of: .detailTapped, model: items[indexPath.row])
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let contentOffset = scrollView.contentOffset.y
             print("contentOffset: ", contentOffset)
-
-
-            
     }
     
 }

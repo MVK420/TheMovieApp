@@ -7,11 +7,13 @@
 
 import UIKit
 
-class GenericMovieCell:BaseWatchableCell<WatchableCellViewModel> {
+class GenericMovieCell:BaseWatchableCell<Movie> {
     
-    override var viewModel: WatchableCellViewModel! {
+    //override var viewModel:WatchableCellViewModel
+    var viewModel:WatchableCellViewModel!
+    override var model: Movie! {
         didSet {
-            //configureCell(with: viewModel)
+            configureCell(with: WatchableCellViewModel(with: model))
         }
     }
     
