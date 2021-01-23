@@ -10,7 +10,6 @@ import UIKit
 class BaseWatchableCell<U>:UITableViewCell {
     
     var model: U?
-    //var viewModel: U?
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Roboto-Bold", size: 18)

@@ -19,7 +19,6 @@ class DetailViewController<U>: UIViewController, Coordinating {
             if let model = model as? TV {
                 viewModel = DetailViewModel(with: model)
             }
-            //updateUI()
         }
     }
     let titleLabel: UILabel = {
@@ -49,8 +48,8 @@ class DetailViewController<U>: UIViewController, Coordinating {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 6
-        stackView.alignment = .leading // .leading .firstBaseline .center .trailing .lastBaseline
-        stackView.distribution = .fillEqually // .fillEqually .fillProportionally .equalSpacing .equalCentering
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -101,8 +100,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
         let stackView:UIStackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 2
-        stackView.alignment = .leading // .leading .firstBaseline .center .trailing .lastBaseline
-        //stackView.distribution = .equalSpacing // .fillEqually .fillProportionally .equalSpacing .equalCentering
+        stackView.alignment = .leading
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(stackTitle)
         stackView.addArrangedSubview(stackValue)
@@ -122,13 +120,12 @@ class DetailViewController<U>: UIViewController, Coordinating {
         let label = UILabel()
         label.text = text
         label.frame.size.width = 67
-        label.font = UIFont.boldSystemFont(ofSize: 12)//12
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         label.textColor = .white
         label.textAlignment = .center
         label.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0)
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
-        //label.adjustsFontSizeToFitWidth = false
        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
@@ -173,7 +170,6 @@ class DetailViewController<U>: UIViewController, Coordinating {
         starImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
         
         ratingLabel.centerYAnchor.constraint(equalTo: starImage.centerYAnchor).isActive = true
-        //ratingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 227).isActive = true
         ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 7).isActive = true
         
         overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 18).isActive = true

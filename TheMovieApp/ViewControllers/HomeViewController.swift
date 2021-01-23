@@ -12,7 +12,7 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMovies()
-        loadandview()
+        //testCall()
         searchBar.delegate = self
     }
     
@@ -30,7 +30,7 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
         }
     }
     
-    private func loadandview() {
+    private func testCall() {
         let url:NSURL = NSURL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.apiCall(url: url) { (result, error) in
             print(result)

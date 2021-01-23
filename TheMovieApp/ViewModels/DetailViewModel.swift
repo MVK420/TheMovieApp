@@ -46,16 +46,16 @@ struct DetailViewModel {
     private func releasedValidate(_ modelDate:String) -> String{
         let isoDate = modelDate
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from:isoDate)!
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
-        let finalDate = calendar.date(from:components)
-        if finalDate! < Date() {
-            return "Released"
+        if let date = dateFormatter.date(from:isoDate) {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day], from: date)
+            let finalDate = calendar.date(from:components)
+            if finalDate! < Date() {
+                return "Released"
+            }
         }
-        
         return "Not Released"
     }
 }

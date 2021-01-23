@@ -14,7 +14,6 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     var items = [U]()
     var page:Int?
     var totalPages:Int?
-    //var viewModel:MovieViewModel?
     
     var tableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .grouped)
