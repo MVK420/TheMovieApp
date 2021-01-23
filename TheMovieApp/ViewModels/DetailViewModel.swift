@@ -19,9 +19,9 @@ struct DetailViewModel {
     let genres:[String]
     
     init(with model:Movie) {
-        name = model.original_title
-        imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
-        overview = model.overview
+        name = model.original_title!
+        imgURL = URL(string: Strings.baseImgUrl + (model.poster_path!))!
+        overview = model.overview!
         
         rating = "4.0"
         status = "Released"

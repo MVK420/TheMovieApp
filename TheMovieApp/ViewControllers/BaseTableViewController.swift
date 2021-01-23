@@ -67,7 +67,4 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         coordinator?.eventHappened(of: .detailTapped, model: items[indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
 }
