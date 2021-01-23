@@ -13,14 +13,18 @@ struct Movie:Decodable {
     var vote_average: Decimal?
     var popularity: Decimal?
     var genre_ids: [Decimal]?
+    var original_language:String?
+    var release_date:String?
     
-    init(original_title:String?, overview:String?, poster_path:String?,vote_average:Decimal?,popularity:Decimal?,genre_ids:[Decimal]?) {
+    init(original_title:String?, overview:String?, poster_path:String?,vote_average:Decimal?,popularity:Decimal?,genre_ids:[Decimal]?,original_language:String,release_date:String) {
         self.original_title = original_title
         self.overview = overview
         self.poster_path = poster_path
         self.vote_average = vote_average
         self.popularity = popularity
         self.genre_ids = genre_ids
+        self.original_language = original_language
+        self.release_date = release_date
     }
 
 }
