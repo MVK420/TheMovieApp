@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0FCA5425C16F210046CC1C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FCA5325C16F210046CC1C /* Coordinator.swift */; };
 		1B1950FF25B4E71B00FF719E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */; };
 		1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6125B4EBC600CD207F /* APIService.swift */; };
 		1B2B1B6625B58C3100CD207F /* TVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B6525B58C3100CD207F /* TVViewModel.swift */; };
@@ -21,7 +22,6 @@
 		1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9C25B4D637000CC683 /* LoginViewController.swift */; };
 		1B7C6CA225B4D639000CC683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C6CA125B4D639000CC683 /* Assets.xcassets */; };
 		1B7C6CA525B4D639000CC683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C6CA325B4D639000CC683 /* LaunchScreen.storyboard */; };
-		1B7C6CB525B4D802000CC683 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CB425B4D802000CC683 /* Coordinator.swift */; };
 		1B7C6CBA25B4D94B000CC683 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CB925B4D94B000CC683 /* Strings.swift */; };
 		1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CBD25B4D9C1000CC683 /* BaseViewController.swift */; };
 		1B7C6CC125B4DA4A000CC683 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */; };
@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0FCA5325C16F210046CC1C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1B1950FE25B4E71B00FF719E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B2B1B6125B4EBC600CD207F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1B2B1B6525B58C3100CD207F /* TVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewModel.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		1B7C6CA125B4D639000CC683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B7C6CA425B4D639000CC683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B7C6CA625B4D639000CC683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B7C6CB425B4D802000CC683 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = ../../../../../../../Applications/Coordinator.swift; sourceTree = "<group>"; };
 		1B7C6CB925B4D94B000CC683 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		1B7C6CBD25B4D9C1000CC683 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B7C6CC025B4DA4A000CC683 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 		1B7C6CB125B4D7D4000CC683 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				1B7C6CB425B4D802000CC683 /* Coordinator.swift */,
 				1B2B1B6125B4EBC600CD207F /* APIService.swift */,
+				1B0FCA5325C16F210046CC1C /* Coordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -328,7 +328,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7C6CEC25B4E580000CC683 /* ImageView.swift in Sources */,
-				1B7C6CB525B4D802000CC683 /* Coordinator.swift in Sources */,
 				1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */,
 				1B2B1B7625B58E0800CD207F /* BaseTableViewController.swift in Sources */,
 				1B2B1B6625B58C3100CD207F /* TVViewModel.swift in Sources */,
@@ -350,6 +349,7 @@
 				1B2B1B6F25B58D5900CD207F /* GenericMovieCell.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
 				1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */,
+				1B0FCA5425C16F210046CC1C /* Coordinator.swift in Sources */,
 				1B2B1B7D25B59D9000CD207F /* TV.swift in Sources */,
 				1B7C6CD025B4DF52000CC683 /* MovieViewModel.swift in Sources */,
 			);
