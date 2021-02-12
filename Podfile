@@ -6,6 +6,8 @@ target 'TheMovieApp' do
   use_frameworks!
 
   # Pods for TheMovieApp
+    	pod 'RxSwift', '6.1.0'
+   	pod 'RxCocoa', '6.1.0'
 	# add the Firebase pod for Google Analytics
 	pod 'Firebase/Analytics'
 	# add pods for any other desired Firebase products

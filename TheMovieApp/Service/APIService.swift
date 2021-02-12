@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 struct HomeFeed: Decodable {
     var page:Int
@@ -42,7 +44,7 @@ class APIService {
             return nil
         }
     }
-    
+        
     func apiCall(url:NSURL, completionHandler: @escaping (NSDictionary?, NSError?) -> Void) -> URLSessionTask {
         
         var finalData: NSDictionary!
