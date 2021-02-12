@@ -23,7 +23,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
         loadMovies()
         movieTableView.delegate = self
         movieTableView.dataSource = self
-        
     }
     
     private func loadMovies() {
@@ -39,6 +38,15 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
             })
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailSegue" {
+            if let indexPath = self.movieTableView.indexPathForSelectedRow {
+                let controller = segue.destination as! DetailsViewController
+                controller.model = model.cellModels[indexPath.row]
+            }
+        }
+    }
 }
 
 extension MoviesViewController: UITableViewDataSource {
@@ -52,5 +60,11 @@ extension MoviesViewController: UITableViewDataSource {
         let cellModel = model.cellModels[indexPath.row]
         cell.setup(model: cellModel)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "toDetailSegue", sender: self)
+        
+        //self.navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
