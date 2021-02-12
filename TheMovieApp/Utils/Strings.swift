@@ -7,8 +7,6 @@
 
 final class Strings {
     
-    static let loginButtonTitle = "Login"
-    static let usernameTextField = "Username"
     static var apiKey = "49e834dedd08dca73d49a7a286ec71f5"
     static var baseUrl = "https://api.themoviedb.org/3/"
     static var baseImgUrl = "https://image.tmdb.org/t/p/w500"

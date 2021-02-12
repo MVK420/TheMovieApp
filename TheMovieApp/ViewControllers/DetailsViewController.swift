@@ -9,27 +9,25 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var model:Movie! {
-        didSet {
-            viewModel = DetailViewModel(with: model)
-        }
-    }
-    var viewModel: DetailViewModel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var genreStackView: UIStackView!
+    
+    var viewModel: DetailViewModel!
+    var model:Movie! {
+        didSet {
+            viewModel = DetailViewModel(with: model)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupUI()
-    }
-    private func setupUI() {
-        //self.navigationController?.navigationBar.isTranslucent = true
-        
     }
     
     func setup() {

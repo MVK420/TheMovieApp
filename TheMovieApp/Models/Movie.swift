@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct Movie:Decodable {
+struct Movie:Decodable,Encodable {
     
     var original_title:String?
     var overview:String? = "No Overview"

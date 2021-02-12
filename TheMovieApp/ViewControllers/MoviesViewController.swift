@@ -18,55 +18,36 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        loadMovies() { (finished:Bool) in
+            if finished {
+                DispatchQueue.main.async {
+                    self.setupUI()
+                }
+
+            }
+        }
+    }
+    
+    private func loadMovies(completion: @escaping(Bool) -> Void) {
+        let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
+        APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
+            result?.results.forEach({
+                self.model.rxModels.add(element: $0)
+            })
+            completion(true)
+        }
     }
     
     private func setupUI() {
         title = "Movies"
-        loadMovies()
-        //movieTableView.delegate = nil
-        //movieTableView.dataSource = nil
-        RXSearch()
-    }
-    
-    private func loadMovies() {
-        let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
-        APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
-            result?.results.forEach({
-                self.model.page = result!.page
-                self.model.totalPages = result!.total_pages
-                self.model.cellModels.append($0)
-                DispatchQueue.main.async {
-                    self.movieTableView.reloadData()
-                }
-            })
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailSegue" {
-            if let indexPath = self.movieTableView.indexPathForSelectedRow {
-                let controller = segue.destination as! DetailsViewController
-                controller.model = model.cellModels[indexPath.row]
-            }
-        }
-    }
-    private func RXSearch() {
-        searchBar.rx.text.orEmpty
+        let _ = searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map({
-                query in self.model.cellModels.filter({
+                query in self.model.rxModels.value.filter({
                     movie in
-                    print("query ",query)
-                    if query.isEmpty {
-                        let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
-                        print("HI")
-                        let result = RxSwiftService.sharedInstance.loadData(with: url, for: HomeFeed.self)
-                        print(result)
-                    }
-                    return query.isEmpty || movie.original_title!.lowercased().contains(query.lowercased())
                     
+                    query.isEmpty || movie.original_title!.lowercased().contains(query.lowercased())
                 })
             })
             .bind(to: self.movieTableView
@@ -74,33 +55,23 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
                     .items(cellIdentifier: MovieCell.cellID, cellType: MovieCell.self)) {
                 (tv,item,cell) in
                 cell.setup(model: item)
-            }
-            .disposed(by: disposeBag)
-        
+                
+            }.disposed(by: disposeBag)
         movieTableView.rx.modelSelected(Movie.self)
             .subscribe(onNext : {
                 movie in
                 self.performSegue(withIdentifier: "toDetailSegue", sender: self)
             })
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailSegue" {
+            if let indexPath = self.movieTableView.indexPathForSelectedRow {
+                let controller = segue.destination as! DetailsViewController
+                controller.model = model.rxModels.value[indexPath.row]
+            }
+        }
+    }
+
 }
 
-extension MoviesViewController {
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return model.cellModels.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellID, for: indexPath) as? MovieCell else { return UITableViewCell() }
-//        let cellModel = model.cellModels[indexPath.row]
-//        cell.setup(model: cellModel)
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "toDetailSegue", sender: self)
-//
-//        //self.navigationController?.pushViewController(destinationVC, animated: true)
-//    }
-}

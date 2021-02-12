@@ -13,7 +13,7 @@ class LoginViewController: UIViewController, Coordinating {
     var usernameTextField:UITextField = {
         var textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = Strings.usernameTextField
+        textField.placeholder = "Login"
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.blue.cgColor
         textField.layer.cornerRadius = 5
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, Coordinating {
     var loginButton:UIButton = {
        var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Strings.loginButtonTitle, for: .normal)
+        button.setTitle("Login", for: .normal)
         button.layer.borderWidth = 1
         button.layer.backgroundColor = UIColor.blue.cgColor
         return button
@@ -57,10 +57,10 @@ class LoginViewController: UIViewController, Coordinating {
         if let username = usernameTextField.text{
             if validateData(username) {
                 coordinator?.eventHappened(of: .loginTapped, model: self)
-                #warning("TODO: Keychain")
+                //#warning("TODO: Keychain")
             }
         }
-        #warning("TODO: Error handling")
+        //#warning("TODO: Error handling")
     }
 
     private func validateData(_ username:String) -> Bool {

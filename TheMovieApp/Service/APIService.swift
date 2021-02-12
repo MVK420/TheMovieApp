@@ -29,7 +29,7 @@ class APIService {
     
     func loadData<T:Decodable>(with URL:URL, for type: T.Type, completion: @escaping(T?, Error?) -> Void) {
         URLSession.shared.dataTask(with: URL) { (data, resp, err) in
-            guard let data = data, let response = resp else { return completion(nil,err) }
+            guard let data = data, let _ = resp else { return completion(nil,err) }
             //print("response: ", response)
             let parsedData = self.parse(data, to: T.self)
             completion(parsedData,nil)
