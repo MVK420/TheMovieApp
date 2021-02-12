@@ -7,6 +7,7 @@
 import Foundation
 
 struct Movie:Decodable {
+    
     var original_title:String? = "No Title"
     var overview:String? = "No Overview"
     var poster_path:String? = "/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg"
