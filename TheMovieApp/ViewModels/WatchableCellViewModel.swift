@@ -17,15 +17,12 @@ struct WatchableCellViewModel {
     
     init(with model:Movie) {
         name = model.original_title!
-        if let poster = model.poster_path {
-            imgURL = URL(string: Strings.baseImgUrl + poster)!
-        } else {
-            imgURL = URL(string: Strings.baseImgUrl + "/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg")!
-        }
+        imgURL = (model.poster_path != nil)
+            ? URL(string: Strings.baseImgUrl + model.poster_path!)!
+            : URL(string: Strings.noImageError)!
         overview = model.overview!
         rating = (model.vote_average!.formattedAmount ?? "0.0")
         popularity = (model.popularity!.formattedAmount ?? "0.0")
-        
     }
     
     init(with model:TV) {
@@ -41,8 +38,8 @@ extension Decimal {
     var formattedAmount: String? {
         let formatter = NumberFormatter()
         formatter.generatesDecimalNumbers = true
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
         return formatter.string(from: self as NSDecimalNumber)
     }
 }

@@ -10,7 +10,7 @@ struct Movie:Decodable,Encodable {
     
     var original_title:String?
     var overview:String? = "No Overview"
-    var poster_path:String? = "/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg"
+    var poster_path:String? = nil
     var vote_average: Decimal?
     var popularity: Decimal?
     var genre_ids: [Decimal]?

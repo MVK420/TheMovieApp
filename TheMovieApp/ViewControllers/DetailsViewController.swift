@@ -24,18 +24,40 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
     }
     
     func setup() {
         titleLabel.text = viewModel.name
-        posterImageView.downloaded(from: viewModel.imgURL)
         overviewLabel.text = viewModel.overview
         statusLabel.text = viewModel.status
         languageLabel.text = viewModel.language
         popularityLabel.text = viewModel.popularity
+        for genre in viewModel.genres {
+            let label = createGenreLabel(genre)
+            genreStackView.addArrangedSubview(label)
+        }
+        if viewModel.imgURL.absoluteString == Strings.noImageError {
+            posterImageView.backgroundColor = .red
+        } else {
+            posterImageView.downloaded(from: viewModel.imgURL)
+        }
+    }
+    
+    private func createGenreLabel(_ text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.frame.size.width = 67
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0)
+        label.layer.cornerRadius = 5
+        label.layer.masksToBounds = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
 }

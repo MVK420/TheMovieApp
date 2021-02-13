@@ -20,7 +20,9 @@ struct DetailViewModel {
     
     init(with model:Movie) {
         name = model.original_title!
-        imgURL = URL(string: Strings.baseImgUrl + (model.poster_path!))!
+        imgURL = (model.poster_path == nil)
+            ? URL(string: Strings.baseImgUrl + model.poster_path!)!
+            : URL(string: Strings.noImageError)!
         overview = model.overview!
         language = model.original_language!.uppercased()
         rating = (model.vote_average!.formattedAmount ?? "0.0")
@@ -31,11 +33,11 @@ struct DetailViewModel {
         status = releasedValidate(model.release_date!)
     }
     
+    ///Not used in UI Builder version
     init(with model:TV) {
         name = model.name
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
         overview = model.overview
-        
         popularity = (model.popularity!.formattedAmount ?? "0.0")
         rating = "4.0"
         status = "Released"

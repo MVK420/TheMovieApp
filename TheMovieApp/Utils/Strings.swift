@@ -11,5 +11,6 @@ final class Strings {
     static var baseUrl = "https://api.themoviedb.org/3/"
     static var baseImgUrl = "https://image.tmdb.org/t/p/w500"
     static var currentUser = "Mozes"
+    static var noImageError = "404"
     
 }

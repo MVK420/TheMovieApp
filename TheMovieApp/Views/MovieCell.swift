@@ -35,7 +35,11 @@ class MovieCell: UITableViewCell {
         viewModel = WatchableCellViewModel(with: model)
         titleLabel.text = viewModel.name
         overviewLabel.text = viewModel.overview
-        posterImageView.downloaded(from: viewModel.imgURL)
+        if viewModel.imgURL.absoluteString == Strings.noImageError {
+            posterImageView.backgroundColor = .red
+        } else {
+            posterImageView.downloaded(from: viewModel.imgURL)
+        }
         ratingLabel.text = viewModel.rating
     }
 }

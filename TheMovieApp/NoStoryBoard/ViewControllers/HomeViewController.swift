@@ -32,8 +32,9 @@ class HomeViewController: BaseTableViewController<GenericMovieCell,Movie> {
     
     private func testCall() {
         let url:NSURL = NSURL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
-        APIService.sharedInstance.apiCall(url: url) { (result, error) in
-            print(result)
+        let _ = APIService.sharedInstance.apiCall(url: url) { (result, error) in
+            print(result as Any)
+            print(error as Any)
         }
     }
     
