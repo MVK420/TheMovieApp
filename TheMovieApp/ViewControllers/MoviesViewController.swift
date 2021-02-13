@@ -15,15 +15,16 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var movieTableView: UITableView!
     var model:MovieVCModel = MovieVCModel()
     let disposeBag = DisposeBag()
+    var selectedItem:Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Movies"
         loadMovies() { (finished:Bool) in
             if finished {
                 DispatchQueue.main.async {
                     self.setupUI()
                 }
-
             }
         }
     }
@@ -39,39 +40,30 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setupUI() {
-        title = "Movies"
         let _ = searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map({
-                query in self.model.rxModels.value.filter({
-                    movie in
-                    
+                query in self.model.rxModels.value.filter({ movie in
                     query.isEmpty || movie.original_title!.lowercased().contains(query.lowercased())
                 })
             })
-            .bind(to: self.movieTableView
-                    .rx
-                    .items(cellIdentifier: MovieCell.cellID, cellType: MovieCell.self)) {
+            .bind(to: self.movieTableView.rx.items(cellIdentifier: MovieCell.cellID, cellType: MovieCell.self)) {
                 (tv,item,cell) in
-                cell.setup(model: item)
-                
-            }.disposed(by: disposeBag)
+                cell.setup(model: item)}
         movieTableView.rx.modelSelected(Movie.self)
-            .subscribe(onNext : {
-                movie in
-                self.performSegue(withIdentifier: "toDetailSegue", sender: self)
-            })
+            .subscribe(onNext: { [weak self] movie in
+                self?.selectedItem = movie
+                self?.performSegue(withIdentifier: "toDetailSegue", sender: self)
+            }).disposed(by: disposeBag)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailSegue" {
-            if let indexPath = self.movieTableView.indexPathForSelectedRow {
                 let controller = segue.destination as! DetailsViewController
-                controller.model = model.rxModels.value[indexPath.row]
-            }
+            controller.model = self.selectedItem
         }
     }
-
+    
 }
 
