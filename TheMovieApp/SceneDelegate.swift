@@ -13,14 +13,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        ///Uncomment for no storyboard use
-        
-//        guard let winScene = (scene as? UIWindowScene) else { return }
-//        let coordinator:MainCoordinator = MainCoordinator()
-//        coordinator.start()
-//        window = UIWindow(windowScene: winScene)
-//        window?.rootViewController = coordinator.navController
-//        window?.makeKeyAndVisible()
+        ///Set this to true if you want true if you want to see noStoryBoardVersion
+        let noStoryboardVersion = false
+        if noStoryboardVersion {
+            guard let winScene = (scene as? UIWindowScene) else { return }
+            let coordinator:MainCoordinator = MainCoordinator()
+            coordinator.start()
+            window = UIWindow(windowScene: winScene)
+            window?.rootViewController = coordinator.navController
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
