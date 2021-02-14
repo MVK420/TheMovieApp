@@ -20,7 +20,7 @@ struct DetailViewModel {
     
     init(with model:Movie) {
         name = model.original_title!
-        imgURL = (model.poster_path == nil)
+        imgURL = (model.poster_path != nil)
             ? URL(string: Strings.baseImgUrl + model.poster_path!)!
             : URL(string: Strings.noImageError)!
         overview = model.overview!

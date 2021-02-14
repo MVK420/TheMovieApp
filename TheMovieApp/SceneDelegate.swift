@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        ///Set this to true if you want true if you want to see noStoryBoardVersion
+        ///Set this to true if you want to see noStoryBoardVersion
         let noStoryboardVersion = false
         if noStoryboardVersion {
             guard let winScene = (scene as? UIWindowScene) else { return }
