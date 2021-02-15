@@ -60,7 +60,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailSegue" {
-                let controller = segue.destination as! DetailsViewController
+            let controller = segue.destination as! DetailsViewController
             controller.model = self.selectedItem
         }
     }
