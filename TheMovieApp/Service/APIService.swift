@@ -52,7 +52,8 @@ class APIService {
             if error != nil{
                 completionHandler(nil, error as NSError?)
                 return
-            } else {
+            }
+            else {
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data!) as? NSDictionary {
                         //print(json)

@@ -31,13 +31,15 @@ class MovieCell: UITableViewCell {
     }
     
     func setup(model:Movie) {
+        posterImageView.makeRoundCorners(byRadius: 1)
         self.model = model
         viewModel = WatchableCellViewModel(with: model)
         titleLabel.text = viewModel.name
         overviewLabel.text = viewModel.overview
         if viewModel.imgURL.absoluteString == Strings.noImageError {
             posterImageView.backgroundColor = .red
-        } else {
+        }
+        else {
             posterImageView.downloaded(from: viewModel.imgURL)
         }
         ratingLabel.text = viewModel.rating

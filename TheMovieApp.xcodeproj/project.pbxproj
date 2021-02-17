@@ -17,6 +17,11 @@
 		1B2B1B7625B58E0800CD207F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B7525B58E0800CD207F /* BaseTableViewController.swift */; };
 		1B2B1B7A25B59B1600CD207F /* GenericTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B7925B59B1600CD207F /* GenericTVCell.swift */; };
 		1B2B1B7D25B59D9000CD207F /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B1B7C25B59D9000CD207F /* TV.swift */; };
+		1B68CC2525DD0AB40071DC11 /* BaseTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68CC2425DD0AB40071DC11 /* BaseTableController.swift */; };
+		1B68CC2925DD14BC0071DC11 /* BestMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68CC2825DD14BC0071DC11 /* BestMoviesViewController.swift */; };
+		1B68CC2C25DD2FD10071DC11 /* ActionMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68CC2B25DD2FD10071DC11 /* ActionMoviesViewController.swift */; };
+		1B68CC2F25DD39560071DC11 /* QuickKissPersonalUse-PxlZ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B68CC2E25DD39560071DC11 /* QuickKissPersonalUse-PxlZ.ttf */; };
+		1B68CC3225DD4F830071DC11 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68CC3125DD4F830071DC11 /* GenreCell.swift */; };
 		1B7C6C9925B4D637000CC683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9825B4D637000CC683 /* AppDelegate.swift */; };
 		1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */; };
 		1B7C6C9D25B4D637000CC683 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C6C9C25B4D637000CC683 /* LoginViewController.swift */; };
@@ -55,6 +60,11 @@
 		1B2B1B7525B58E0800CD207F /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		1B2B1B7925B59B1600CD207F /* GenericTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTVCell.swift; sourceTree = "<group>"; };
 		1B2B1B7C25B59D9000CD207F /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		1B68CC2425DD0AB40071DC11 /* BaseTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableController.swift; sourceTree = "<group>"; };
+		1B68CC2825DD14BC0071DC11 /* BestMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestMoviesViewController.swift; sourceTree = "<group>"; };
+		1B68CC2B25DD2FD10071DC11 /* ActionMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionMoviesViewController.swift; sourceTree = "<group>"; };
+		1B68CC2E25DD39560071DC11 /* QuickKissPersonalUse-PxlZ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuickKissPersonalUse-PxlZ.ttf"; sourceTree = "<group>"; };
+		1B68CC3125DD4F830071DC11 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		1B7C6C9525B4D637000CC683 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7C6C9825B4D637000CC683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7C6C9A25B4D637000CC683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +173,9 @@
 			children = (
 				1B93EF5F25D55B9A00AA938B /* MoviesViewController.swift */,
 				1B93EF7125D6533500AA938B /* DetailsViewController.swift */,
+				1B68CC2425DD0AB40071DC11 /* BaseTableController.swift */,
+				1B68CC2825DD14BC0071DC11 /* BestMoviesViewController.swift */,
+				1B68CC2B25DD2FD10071DC11 /* ActionMoviesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 		1B7C6CB225B4D7DA000CC683 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1B68CC3125DD4F830071DC11 /* GenreCell.swift */,
 				1B93EF6A25D5685D00AA938B /* MovieCell.swift */,
 			);
 			path = Views;
@@ -186,6 +200,7 @@
 		1B7C6CB825B4D942000CC683 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B68CC2E25DD39560071DC11 /* QuickKissPersonalUse-PxlZ.ttf */,
 				1B7C6CB925B4D94B000CC683 /* Strings.swift */,
 				1BDE489125BCC17C001155F1 /* Genres.swift */,
 			);
@@ -323,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7C6CA525B4D639000CC683 /* LaunchScreen.storyboard in Resources */,
+				1B68CC2F25DD39560071DC11 /* QuickKissPersonalUse-PxlZ.ttf in Resources */,
 				1B7C6CA225B4D639000CC683 /* Assets.xcassets in Resources */,
 				1B93EF5B25D559D900AA938B /* Main.storyboard in Resources */,
 				1B1950FF25B4E71B00FF719E /* GoogleService-Info.plist in Resources */,
@@ -388,6 +404,7 @@
 				1BABA05225D6CFCC00816362 /* BehaviorRelay.swift in Sources */,
 				1B7C6CBA25B4D94B000CC683 /* Strings.swift in Sources */,
 				1B93EF6625D5603C00AA938B /* MovieVCModel.swift in Sources */,
+				1B68CC2525DD0AB40071DC11 /* BaseTableController.swift in Sources */,
 				1B7C6CC725B4DB04000CC683 /* TVViewController.swift in Sources */,
 				1B7C6CC425B4DA85000CC683 /* HomeViewController.swift in Sources */,
 				1B2B1B7A25B59B1600CD207F /* GenericTVCell.swift in Sources */,
@@ -400,8 +417,11 @@
 				1B7C6C9B25B4D637000CC683 /* SceneDelegate.swift in Sources */,
 				1BDE488725BC4AD7001155F1 /* DetailViewController.swift in Sources */,
 				1B7C6CCA25B4DCC9000CC683 /* FavoritesViewController.swift in Sources */,
+				1B68CC3225DD4F830071DC11 /* GenreCell.swift in Sources */,
 				1B7C6CCD25B4DE34000CC683 /* Movie.swift in Sources */,
 				1B2B1B6F25B58D5900CD207F /* GenericMovieCell.swift in Sources */,
+				1B68CC2925DD14BC0071DC11 /* BestMoviesViewController.swift in Sources */,
+				1B68CC2C25DD2FD10071DC11 /* ActionMoviesViewController.swift in Sources */,
 				1B7C6CBE25B4D9C1000CC683 /* BaseViewController.swift in Sources */,
 				1B93EF6025D55B9A00AA938B /* MoviesViewController.swift in Sources */,
 				1B2B1B6225B4EBC600CD207F /* APIService.swift in Sources */,

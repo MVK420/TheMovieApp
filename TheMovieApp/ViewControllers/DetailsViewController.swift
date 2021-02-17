@@ -7,7 +7,17 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.genres.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as? GenreCell else { return UICollectionViewCell() }
+        cell.setupLabel(viewModel.genres[indexPath.row])
+        return cell
+    }
+    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -15,7 +25,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var genreStackView: UIStackView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!
+    
     
     var viewModel: DetailViewModel!
     var model:Movie! {
@@ -27,7 +38,8 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
+        genreCollectionView.delegate = self
+        genreCollectionView.dataSource = self
     }
     
     func setup() {
@@ -36,10 +48,10 @@ class DetailsViewController: UIViewController {
         statusLabel.text = viewModel.status
         languageLabel.text = viewModel.language
         popularityLabel.text = viewModel.popularity
-        for genre in viewModel.genres {
-            let label = createGenreLabel(genre)
-            genreStackView.addArrangedSubview(label)
-        }
+//        for genre in viewModel.genres {
+//            let label = createGenreLabel(genre)
+//            genreStackView.addArrangedSubview(label)
+//        }
         if viewModel.imgURL.absoluteString == Strings.noImageError {
             posterImageView.backgroundColor = .red
         } else {
