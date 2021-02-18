@@ -69,7 +69,5 @@ class BaseTableController: UIViewController {
  A billentyuzetet kereses utan nem tudom eltuntetni
 
  a reszletes oldalon szoveg ha tul hosszu, nem fer ki, kene egy "see more" gomb
- a genre collectionViewval legyen megoldva, hogy ha sok van belole, tobb sorba jelenjen meg (lehet kapsz kesz megoldast is)
- dark mod/light mod valtas
  swift lint hasznalata: https://github.com/realm/SwiftLint
  */

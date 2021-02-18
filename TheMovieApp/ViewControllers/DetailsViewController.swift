@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum ButtonState:String {
+    case seeMore = "See More"
+    case seeLess = "See Less"
+}
+
 class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,7 +21,9 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var genreCollectionView: UICollectionView!
+    @IBOutlet weak var seeMoreButton: UIButton!
     private var viewModel: DetailViewModel!
+    private var seeMoreButtonState: Bool = false
     var model:Movie! {
         didSet {
             viewModel = DetailViewModel(with: model)
@@ -41,8 +48,19 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         } else {
             posterImageView.downloaded(from: viewModel.imgURL)
         }
+        seeMoreButton.isHidden = !overviewLabel.isTruncatedOrNot()
     }
     
+    @IBAction func didTapSeeMoreButton(_ sender: Any) {
+        if seeMoreButtonState == false {
+            seeMoreButton.setTitle(ButtonState.seeLess.rawValue, for: .normal)
+        }
+        else {
+            seeMoreButton.setTitle(ButtonState.seeMore.rawValue, for: .normal)
+        }
+        seeMoreButtonState.toggle()
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.genres.count
     }
