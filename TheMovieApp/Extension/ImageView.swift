@@ -29,8 +29,8 @@ extension UIImageView {
     }
     
     func makeRoundCorners(byRadius rad: CGFloat) {
-        self.layer.cornerRadius = rad
-        self.clipsToBounds = true
-        print("hello")
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
     }
 }

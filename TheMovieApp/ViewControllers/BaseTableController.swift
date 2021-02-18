@@ -66,7 +66,6 @@ class BaseTableController: UIViewController {
 }
 
 /*
- A listaban a poszterek sarka kerekitett kell legyen, es tegyunk egy 0.5-1 pixeles fekete keretet is neki
  A billentyuzetet kereses utan nem tudom eltuntetni
 
  a reszletes oldalon szoveg ha tul hosszu, nem fer ki, kene egy "see more" gomb

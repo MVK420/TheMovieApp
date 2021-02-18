@@ -11,8 +11,12 @@ class GenreCell: UICollectionViewCell {
     @IBOutlet weak var genreLabel: UILabel!
     
     func setupLabel(_ text: String) {
-        genreLabel.backgroundColor = .red
         genreLabel.text = text
+        
+        //genreLabel.frame.size.width = 167
+        genreLabel.textColor = .white
+        genreLabel.textAlignment = .center
+        genreLabel.backgroundColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0)
         genreLabel.layer.cornerRadius = 5
         genreLabel.layer.masksToBounds = true
     }
