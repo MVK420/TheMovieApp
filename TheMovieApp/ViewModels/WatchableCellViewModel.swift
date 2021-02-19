@@ -9,13 +9,13 @@ import UIKit
 
 struct WatchableCellViewModel {
     
-    let name:String
-    let overview:String
-    let imgURL:URL
-    let rating:String
-    let popularity:String
+    let name: String
+    let overview: String
+    let imgURL: URL
+    let rating: String
+    let popularity: String
     
-    init(with model:Movie) {
+    init(with model: Movie) {
         name = model.original_title!
         imgURL = (model.poster_path != nil)
             ? URL(string: Strings.baseImgUrl + model.poster_path!)!
@@ -25,7 +25,7 @@ struct WatchableCellViewModel {
         popularity = (model.popularity!.formattedAmount ?? "0.0")
     }
     
-    init(with model:TV) {
+    init(with model: TV) {
         name = model.name
         imgURL = URL(string: Strings.baseImgUrl + (model.poster_path))!
         overview = model.overview

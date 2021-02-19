@@ -30,7 +30,7 @@ class MovieCell: UITableViewCell {
         self.alpha = 1
     }
     
-    func setup(model:Movie) {
+    func setup(model: Movie) {
         posterImageView.makeRoundCorners(byRadius: 1)
         self.model = model
         viewModel = WatchableCellViewModel(with: model)

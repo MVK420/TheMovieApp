@@ -10,10 +10,10 @@ import UIKit
 class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITableViewDataSource, UITableViewDelegate,Coordinating {
     
     var coordinator: Coordinator?
-    let cellID:String = "cellID"
+    let cellID: String = "cellID"
     var items = [U]()
-    var page:Int?
-    var totalPages:Int?
+    var page: Int?
+    var totalPages: Int?
     
     var tableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .grouped)
@@ -24,7 +24,7 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
         tableView.backgroundColor = .white
         return tableView
     }()
-    var searchBar:UISearchBar =  {
+    var searchBar: UISearchBar =  {
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: 150, height: 43)
         searchBar.placeholder = "Search"
@@ -54,8 +54,8 @@ class BaseTableViewController<T:BaseWatchableCell<U>,U>:BaseViewController,UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! BaseWatchableCell<U>
-        let model:U? = items[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? BaseWatchableCell<U> else { return UITableViewCell() }
+        let model: U? = items[indexPath.row]
         cell.model = model
         return cell
     }

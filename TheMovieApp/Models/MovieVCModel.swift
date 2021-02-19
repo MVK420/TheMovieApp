@@ -11,8 +11,8 @@ import RxRelay
 import RxCocoa
 
 struct MovieVCModel {
-    var page:Int?
-    var totalPages:Int?
-    var cellModels:[Movie] = [Movie]()
+    var page: Int?
+    var totalPages: Int?
+    var cellModels: [Movie] = [Movie]()
     var rxModels: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
 }

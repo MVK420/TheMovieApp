@@ -13,7 +13,7 @@ class BestMoviesViewController: BaseTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Best Movies"
-        loadMovies() { (finished:Bool) in
+        loadMovies { (finished:Bool) in
             if finished {
                 DispatchQueue.main.async {
                     self.setupUI()
@@ -23,8 +23,8 @@ class BestMoviesViewController: BaseTableController {
     }
 
     private func loadMovies(completion: @escaping(Bool) -> Void) {
-        let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
-        APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
+        let url: URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
+        APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result: HomeFeed?,err: Error?) in
             var tempArray: [Movie] = [Movie]()
             result?.results.forEach({
                 tempArray.append($0)

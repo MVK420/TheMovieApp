@@ -15,4 +15,3 @@ extension BehaviorRelay where Element: RangeReplaceableCollection {
         self.accept(array)
     }
 }
-

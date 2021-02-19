@@ -6,7 +6,5 @@
 //
 
 struct TVViewModel {
-    
-    var movies:[TV] = [TV]()
+    var movies: [TV] = [TV]()
 }
-

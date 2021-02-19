@@ -11,7 +11,7 @@ import RxCocoa
 
 struct HomeFeed: Decodable {
     var page:Int
-    var total_pages:Int
+    var total_pages: Int
     let results: [Movie]
 }
 
@@ -23,20 +23,20 @@ class APIService {
     
     static let sharedInstance = APIService()
     
-    private init(){
+    private init() {
         
     }
     
-    func loadData<T:Decodable>(with URL:URL, for type: T.Type, completion: @escaping(T?, Error?) -> Void) {
+    func loadData<T:Decodable>(with URL: URL, for type: T.Type, completion: @escaping(T?, Error?) -> Void) {
         URLSession.shared.dataTask(with: URL) { (data, resp, err) in
-            guard let data = data, let _ = resp else { return completion(nil,err) }
-            //print("response: ", response)
+            guard let data = data, let _ = resp else { return completion(nil, err) }
+            // print("response: ", response)
             let parsedData = self.parse(data, to: T.self)
-            completion(parsedData,nil)
+            completion(parsedData, nil)
         }.resume()
     }
     
-    private func parse<T: Decodable>(_ data: Data, to type: T.Type)->T? {
+    private func parse<T: Decodable>(_ data: Data, to type: T.Type) -> T? {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch let error {
@@ -45,7 +45,7 @@ class APIService {
         }
     }
         
-    func apiCall(url:NSURL, completionHandler: @escaping (NSDictionary?, NSError?) -> Void) -> URLSessionTask {
+    func apiCall(url: NSURL, completionHandler: @escaping (NSDictionary?, NSError?) -> Void) -> URLSessionTask {
         
         var finalData: NSDictionary!
         let task = URLSession.shared.dataTask(with: url as URL) { (data, response, error) -> Void in
@@ -54,9 +54,9 @@ class APIService {
                 return
             }
             else {
-                do{
+                do {
                     if let json = try JSONSerialization.jsonObject(with: data!) as? NSDictionary {
-                        //print(json)
+                        // print(json)
                         finalData = json as NSDictionary
                         completionHandler(finalData, nil)
                         return

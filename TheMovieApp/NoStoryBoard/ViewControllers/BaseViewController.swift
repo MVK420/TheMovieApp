@@ -21,4 +21,3 @@ class BaseViewController: UIViewController {
         navigationController?.view.backgroundColor = .white
     }
 }
-

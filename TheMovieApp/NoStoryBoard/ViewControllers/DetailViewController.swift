@@ -11,7 +11,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
     var viewModel: DetailViewModel!
-    var model:U! {
+    var model: U! {
         didSet {
             if let model = model as? Movie {
                 viewModel = DetailViewModel(with: model)
@@ -53,7 +53,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    let ratingLabel:UILabel = {
+    let ratingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.textColor = .yellow
@@ -64,20 +64,20 @@ class DetailViewController<U>: UIViewController, Coordinating {
     }()
     let starImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named:"Star 1")
+        img.image = UIImage(named: "Star 1")
         img.translatesAutoresizingMaskIntoConstraints = false
         img.layer.zPosition = 2
         return img
     }()
-    var popularityStackView:UIStackView!
-    var languageStackView:UIStackView!
-    var statusStackView:UIStackView!
+    var popularityStackView: UIStackView!
+    var languageStackView: UIStackView!
+    var statusStackView: UIStackView!
     var statusLabel: UILabel!
     var popularityLabel: UILabel!
-    var languageLabel:UILabel!
-    var statusTitleLabel:UILabel!
-    var popularityTitleLabel:UILabel!
-    var languageTitleLabel:UILabel!
+    var languageLabel: UILabel!
+    var statusTitleLabel: UILabel!
+    var popularityTitleLabel: UILabel!
+    var languageTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +130,7 @@ class DetailViewController<U>: UIViewController, Coordinating {
         return label
     }
     
-    private func setupUI(){
+    private func setupUI() {
         statusTitleLabel = createTitleLabel("Status")
         popularityTitleLabel = createTitleLabel("Popularity")
         languageTitleLabel = createTitleLabel("Language")
@@ -188,7 +188,6 @@ class DetailViewController<U>: UIViewController, Coordinating {
         genreStackView.bottomAnchor.constraint(equalTo: overviewLabel.topAnchor, constant: -8).isActive = true
         genreStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
         genreStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-        
     }
     
     private func updateUI() {

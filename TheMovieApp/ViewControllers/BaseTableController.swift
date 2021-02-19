@@ -20,15 +20,15 @@ class BaseTableController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ///Transparent nav bar
+        // Transparent nav bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         setupSearchController()
         setupKeyboard()
     }
     
     private func setupKeyboard() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        //view.addGestureRecognizer(tap)
+        // let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        // view.addGestureRecognizer(tap)
     }
     
     private func setupSearchController() {
@@ -37,22 +37,20 @@ class BaseTableController: UIViewController {
     }
     
     func setupUI() {
-        let _ = searchController.searchBar.rx.text.orEmpty
+        _ = searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .map({
-                query in self.model.rxModels.value.filter({ movie in
+            .map({query in self.model.rxModels.value.filter({ movie in
                     query.isEmpty || movie.original_title!.lowercased().contains(query.lowercased())
                 })
             })
-            .bind(to: self.tableView.rx.items(cellIdentifier: MovieCell.cellID, cellType: MovieCell.self)) {
-                (tv,item,cell) in
+            .bind(to: self.tableView.rx.items(cellIdentifier: MovieCell.cellID, cellType: MovieCell.self)) {(tv,item,cell) in
                 cell.setup(model: item)}
         tableView.rx.modelSelected(Movie.self)
             .subscribe(onNext: { [weak self] movie in
                 self?.selectedItem = movie
                 self?.performSegue(withIdentifier: "toDetailSegue", sender: self)
-                ///Deselect row
+                // Deselect row
                 if let selectedRowIndexPath = self?.tableView.indexPathForSelectedRow {
                     self?.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
                 }
@@ -60,7 +58,6 @@ class BaseTableController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
 }
@@ -69,5 +66,4 @@ class BaseTableController: UIViewController {
  A billentyuzetet kereses utan nem tudom eltuntetni
 
  a reszletes oldalon szoveg ha tul hosszu, nem fer ki, kene egy "see more" gomb
- swift lint hasznalata: https://github.com/realm/SwiftLint
  */

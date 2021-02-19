@@ -6,6 +6,5 @@
 //
 
 struct MovieViewModel {
-    
-    var movies:[Movie] = [Movie]()
+    var movies: [Movie] = [Movie]()
 }
