@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxRelay
 
 class BestMoviesViewController: BaseTableController {
     
@@ -24,9 +25,16 @@ class BestMoviesViewController: BaseTableController {
     private func loadMovies(completion: @escaping(Bool) -> Void) {
         let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
+            var tempArray: [Movie] = [Movie]()
             result?.results.forEach({
-                self.model.rxModels.add(element: $0)
+                tempArray.append($0)
             })
+            let sortedArray = tempArray.sorted {
+                $0.vote_average! > $1.vote_average!
+            }
+            for movie in sortedArray[0...4] {
+                self.model.rxModels.add(element: movie)
+            }
             completion(true)
         }
     }

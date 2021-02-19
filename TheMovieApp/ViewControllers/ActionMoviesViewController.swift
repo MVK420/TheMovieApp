@@ -25,7 +25,9 @@ class ActionMoviesViewController: BaseTableController {
         let url:URL = URL(string: Strings.baseUrl + "movie/now_playing?api_key=\(Strings.apiKey)")!
         APIService.sharedInstance.loadData(with: url, for: HomeFeed.self) { (result:HomeFeed?,err:Error?) in
             result?.results.forEach({
-                self.model.rxModels.add(element: $0)
+                if $0.genre_ids?.contains(28) == true {
+                    self.model.rxModels.add(element: $0)
+                }
             })
             completion(true)
         }
