@@ -12,7 +12,7 @@ enum ButtonState:String {
     case seeLess = "See Less"
 }
 
-class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout {
+class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     @IBOutlet weak var seeMoreButton: UIButton!
     private var viewModel: DetailViewModel!
@@ -43,6 +44,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         statusLabel.text = viewModel.status
         languageLabel.text = viewModel.language
         popularityLabel.text = viewModel.popularity
+        ratingLabel.text = viewModel.rating
         if viewModel.imgURL.absoluteString == Strings.noImageError {
             posterImageView.backgroundColor = .red
         } else {
@@ -66,7 +68,7 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as? GenreCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCell.cellID, for: indexPath) as? GenreCell else { return UICollectionViewCell() }
         cell.setupLabel(viewModel.genres[indexPath.row])
         return cell
     }

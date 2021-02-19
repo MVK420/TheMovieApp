@@ -8,6 +8,8 @@
 import UIKit
 
 class GenreCell: UICollectionViewCell {
+    
+    static let cellID = "genreCell"
     @IBOutlet weak var genreLabel: UILabel!
     
     func setupLabel(_ text: String) {
